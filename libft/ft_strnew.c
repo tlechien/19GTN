@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlechien <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/17 17:40:15 by tlechien          #+#    #+#             */
-/*   Updated: 2018/10/18 19:01:11 by tlechien         ###   ########.fr       */
+/*   Created: 2018/10/08 19:37:17 by tlechien          #+#    #+#             */
+/*   Updated: 2018/10/09 16:55:21 by tlechien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 32
-# define MAX_INT 2147483647
+char	*ft_strnew(size_t size)
+{
+	char	*str;
 
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft/libft.h"
-
-int		get_next_line(const int fd, char **line);
-
-#endif
+	if (!(str = (char *)ft_memalloc(size + 1)))
+		return (NULL);
+	while (size + 1 > 0)
+		str[size--] = '\0';
+	return (str);
+}

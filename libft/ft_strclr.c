@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlechien <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/17 17:40:15 by tlechien          #+#    #+#             */
-/*   Updated: 2018/10/18 19:01:11 by tlechien         ###   ########.fr       */
+/*   Created: 2018/10/08 19:42:09 by tlechien          #+#    #+#             */
+/*   Updated: 2018/10/12 17:12:34 by tlechien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 32
-# define MAX_INT 2147483647
-
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft/libft.h"
-
-int		get_next_line(const int fd, char **line);
-
-#endif
+void	ft_strclr(char *s)
+{
+	if (!s)
+		return ;
+	while (*s)
+		*s++ = '\0';
+}

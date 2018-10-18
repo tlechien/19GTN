@@ -1,25 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlechien <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/17 17:40:15 by tlechien          #+#    #+#             */
-/*   Updated: 2018/10/18 19:01:11 by tlechien         ###   ########.fr       */
+/*   Created: 2018/10/08 19:53:05 by tlechien          #+#    #+#             */
+/*   Updated: 2018/10/13 17:21:47 by tlechien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 32
-# define MAX_INT 2147483647
+static size_t	ft_strlen2(const char *s)
+{
+	int i;
 
-# include <stdlib.h>
-# include <unistd.h>
-# include "libft/libft.h"
+	i = 0;
+	while (s && s[i])
+		i++;
+	return (i);
+}
 
-int		get_next_line(const int fd, char **line);
+char			*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	int		len;
+	char	*map;
+	int		i;
 
-#endif
+	len = ft_strlen2(s);
+	i = 0;
+	if (!s || !f || !(map = ft_strnew(len)))
+		return (NULL);
+	while (s[i])
+	{
+		map[i] = f(i, s[i]);
+		i++;
+	}
+	return (map);
+}
